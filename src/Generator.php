@@ -44,7 +44,7 @@ class Generator
         return $paragraph;
     }
 
-    function generateParagraphs($nb_paragraphs = 3, $topic = null)
+    function generateParagraphs($nb_paragraphs = 3, $asText = false, $topic = null)
     {
         $paragraphs = [];
         if (!is_numeric($nb_paragraphs)) {
@@ -54,7 +54,7 @@ class Generator
             $nb_sentences = rand(2, 5);
             $paragraphs[] = $this->generateParagraph($nb_sentences, $topic);
         }
-        return $paragraphs;
+        return $asText ? implode("\n\n", $paragraphs) : $paragraphs;
     }
 
     function generateSentence($topic = null)
@@ -88,17 +88,16 @@ class Generator
         return $pattern;
     }
 
-    public function generateSentences($nb_sentences = 3, $topic = null)
+    public function generateSentences($nb_sentences = 3, $asText = false, $topic = null)
     {
         $sentences = [];
         if (!is_numeric($nb_sentences)) {
             return false;
         }
         for ($i = 0; $i < $nb_sentences; $i++) {
-
             $sentences[] = $this->generateSentence($topic);
         }
-        return $sentences;
+        return $asText ? implode(' ', $sentences) : $sentences;
     }
 
 
@@ -649,4 +648,4 @@ class Generator
             ]
     ];
 
-} 
+}

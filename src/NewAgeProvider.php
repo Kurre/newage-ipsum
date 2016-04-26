@@ -30,10 +30,10 @@ class NewAgeProvider extends Base
         return $generator->generateSentence($topic);
     }
 
-    public function sentences($number_of_sentences = 3, $topic = null)
+    public function sentences($number_of_sentences = 3, $asText = false, $topic = null)
     {
         $generator = new Generator();
-        return $generator->generateSentences($number_of_sentences, $topic);
+        return $generator->generateSentences($number_of_sentences, $asText, $topic);
     }
 
     public function paragraph($number_of_paragraphs = 3, $topic = null)
@@ -42,9 +42,9 @@ class NewAgeProvider extends Base
         return $generator->generateParagraph($number_of_paragraphs, $topic);
     }
 
-    public function paragraphs($number_of_paragraphs = 1, $topic = null)
+    public function paragraphs($number_of_paragraphs = 1, $asText = false, $topic = null)
     {
         $generator = new Generator();
-        return $generator->generateParagraphs($number_of_paragraphs, $topic);
+        return $generator->generateParagraphs($number_of_paragraphs, $asText, $topic);
     }
-} 
+}
