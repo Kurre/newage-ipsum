@@ -18,10 +18,10 @@ class NewAgeProvider extends Base
         return $generator->generateWord();
     }
 
-    public function words($nb_words = 3)
+    public function words($nb_words = 3, $asText = false)
     {
         $generator = new Generator();
-        return $generator->generateWords($nb_words);
+        return $generator->generateWords($nb_words, $asText);
     }
 
     public function sentence($topic = null)

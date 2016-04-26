@@ -21,7 +21,7 @@ class Generator
         return $this->retrieveRandomWordOfType($this->getRandomVocabType());
     }
 
-    public function generateWords($nb_words = 3)
+    public function generateWords($nb_words = 3, $asText = false)
     {
         if (!is_numeric($nb_words)) {
             return false;
@@ -30,7 +30,7 @@ class Generator
         for ($i = 0; $i < $nb_words; $i++) {
             $words[] = $this->generateWord();
         }
-        return $words;
+        return $asText ? implode(' ', $words) : $words;
     }
 
     function generateParagraph($nb_sentences = 3, $topic = null)
